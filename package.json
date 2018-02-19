@@ -1,0 +1,16 @@
+{
+  "name": "payments",
+  "version": "1.0.0",
+  "description": "generate invoices, listen for payments",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sam Hill",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "lightning-client": "^0.5.2-beta.7"
+  }
+}
