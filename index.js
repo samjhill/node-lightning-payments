@@ -1,5 +1,4 @@
 var express = require('express');
-var cors = require('cors');
 var app = express();
 const path = require('path');
 const fs = require('fs');
@@ -67,18 +66,13 @@ var getInvoice = function(req, res) {
       });
   }
 
-app.use(cors({
-  origin: 'http://distributed.love',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}));
 
 app.get('/getinvoice', function(req, res) {
-	console.log('hit getinvoice');
-	res.send( getInvoice(req, res) );
+	getInvoice(req, res);
 });
 
 app.get('/invoicestatus', function(req, res) {
-	res.send( getInvoiceStatus(req, res) );
+	getInvoiceStatus(req, res);
 });
 
 app.listen('9001');
