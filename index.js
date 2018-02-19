@@ -71,7 +71,7 @@ app.get('/getinvoice', function(req, res) {
 	getInvoice(req, res);
 });
 
-app.get('/invoicestatus', function(req, res) {
+app.get('/getinvoicestatus', function(req, res) {
 	getInvoiceStatus(req, res);
 });
 
