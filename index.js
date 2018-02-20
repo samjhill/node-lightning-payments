@@ -1,3 +1,4 @@
+const cacheControl = require('express-cache-controller');
 var express = require('express');
 var app = express();
 const path = require('path');
@@ -25,7 +26,7 @@ var getInvoice = function(req, res) {
           return res.status(500).send('Whoah, thanks for generosity but tips under uint32 limit will do! (4,294,967,295 msat to be precise)');
 
       lightning.AddInvoice({
-          memo: "Sentiment Analysis Tips",
+          memo: "Sentiment Analysis Tips - thank you!",
           value: value
       }, function(err, resp) {
           if (!err)
@@ -62,6 +63,7 @@ var getInvoice = function(req, res) {
           if (!err)
               res.send(resp.settled);
           else
+		console.log(err);
               res.status(500).send('Error checking invoice status');
       });
   }

@@ -11,6 +11,7 @@
   "dependencies": {
     "cors": "^2.8.4",
     "express": "^4.16.2",
+    "express-cache-controller": "^1.1.0",
     "lightning-client": "^0.5.2-beta.7"
   }
 }
