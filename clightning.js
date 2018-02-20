@@ -1,4 +1,5 @@
 const LightningClient = require('lightning-client');
+const { exec } = require('child_process');
 
 var lightning = {};
 
@@ -9,8 +10,14 @@ module.exports = function (lightningPath) {
 
     lightning.LookupInvoice = async function(input, callback){
         let resp = { };
-        let err = 'Not implemented';
-        callback(err, resp);
+	exec('lightning-cli listinvoices | grep ' + input.r_hash_str, (err,stdout,stderr) => {
+		if(err) {
+			console.log(err);
+			return callback(err);
+		}
+		resp.data = JSON.stringify(stdout);
+		return callback(err, resp);
+	});
     };
 
     lightning.AddInvoice = async function(input, callback){

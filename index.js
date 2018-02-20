@@ -61,7 +61,7 @@ var getInvoice = function(req, res) {
           r_hash_str: rhash
       }, function(err, resp) {
           if (!err)
-              res.send(resp.settled);
+              res.send(resp);
           else
 		console.log(err);
               res.status(500).send('Error checking invoice status');
